@@ -20,6 +20,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.QueryParam;
 
 import org.springframework.stereotype.Component;
@@ -37,6 +38,8 @@ public class GreetingEndpoint {
 
     @POST
     @Path("/welcome")
+    @Consumes("application/json")
+    @Produces("application/json")
     public Greeting greeting2(Parameter params) {
         String message = "Welcome, " + params.getName();
         return new Greeting(message);
